@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Yahya Angga Winata</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Arial', sans-serif; background-color: #ffffff; color: #444; line-height: 1.4; }
+        
+        /* Layout Container */
+        .resume-container { max-width: 900px; margin: 20px auto; display: flex; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 5px; overflow: hidden; }
+
+        /* Left Sidebar (Blue Accent) */
+        .sidebar { width: 35%; background-color: #dbe4eb; padding: 30px 20px; }
+        .profile-img { width: 160px; height: 160px; border-radius: 50%; background-color: #fff; margin: 0 auto 30px; border: 5px solid #fff; overflow: hidden; }
+        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .sidebar-section { margin-bottom: 30px; }
+        .sidebar-title { font-size: 1.1rem; font-weight: bold; color: #2c3e50; border-bottom: 2px solid #2c3e50; margin-bottom: 15px; padding-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .contact-item { margin-bottom: 12px; font-size: 0.85rem; word-break: break-all; }
+        .sidebar ul { list-style: none; }
+        .sidebar ul li { font-size: 0.85rem; margin-bottom: 8px; padding-left: 10px; border-left: 3px solid #2c3e50; }
+
+        /* Right Content */
+        .main-content { width: 65%; padding: 40px; }
+        .header { margin-bottom: 30px; text-align: left; }
+        .header h1 { font-size: 2.2rem; color: #2c3e50; text-transform: uppercase; margin-bottom: 5px; }
+        .header p { font-size: 1rem; color: #555; letter-spacing: 2px; }
+
+        .section-title { font-size: 1.2rem; font-weight: bold; color: #2c3e50; border-bottom: 1px solid #ccc; margin-bottom: 15px; padding-bottom: 5px; text-transform: uppercase; }
+        .content-block { margin-bottom: 25px; }
+        .content-block p { font-size: 0.9rem; text-align: justify; }
+
+        .experience-item { margin-bottom: 15px; }
+        .exp-header { display: flex; justify-content: space-between; font-weight: bold; color: #2c3e50; font-size: 0.95rem; }
+        .exp-company { font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-bottom: 5px; }
+        .experience-item ul { padding-left: 18px; font-size: 0.85rem; color: #444; }
+        .experience-item ul li { margin-bottom: 3px; }
+
+        .project-box { background-color: #f9f9f9; padding: 12px; border-left: 4px solid #dbe4eb; margin-bottom: 10px; }
+        .project-box strong { font-size: 0.9rem; color: #2c3e50; }
+        .project-box p { font-size: 0.8rem; margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="resume-container">
+    <div class="sidebar">
+        <div class="profile-img">
+            <img src="https://via.placeholder.com/160" alt="Yahya Angga Winata">
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Contact</div>
+            [cite_start]<div class="contact-item">📞 0819-3281-4401 [cite: 8]</div>
+            <div class="contact-item">📧 mail@yahyawinata.my.id</div>
+            <div class="contact-item">🌐 yahyawinata.my.id</div>
+            [cite_start]<div class="contact-item">📍 Tangerang, Banten [cite: 7]</div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Education</div>
+            <div class="contact-item">
+                <strong>Teknik Informatika</strong><br>
+                Universitas Pramita Indonesia<br>
+                2015 - 2019
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Skills</div>
+            <ul>
+                <li>Active Directory</li>
+                <li>OTRS System</li>
+                <li>RSAT Tools</li>
+                <li>Armbian & Linux</li>
+                <li>Hardware Troubleshooting</li>
+                <li>Network Management</li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">Soft Skills</div>
+            <ul>
+                <li>Problem Solving</li>
+                <li>Communication</li>
+                <li>Time Management</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Yahya Angga Winata</h1>
+            <p>IT Helpdesk Professional</p>
+        </div>
+
+        <div class="content-block">
+            <div class="section-title">About Me</div>
+            [cite_start]<p>I am Yahya Angga Winata[cite: 9]. IT Helpdesk professional dengan pengalaman lebih dari 4 tahun dalam mengelola infrastruktur IT di lingkungan korporat. Berpengalaman menangani Troubleshooting Hardware, Software, serta Network berskala besar.</p>
+        </div>
+
+        <div class="content-block">
+            <div class="section-title">Work Experience</div>
+            
+            <div class="experience-item">
+                <div class="exp-header">
+                    <span>IT HELPDESK</span>
+                    <span>Sep 2022 – Present</span>
+                </div>
+                <div class="exp-company">PT. Global Digital Niaga (Blibli)</div>
+                <ul>
+                    <li>Mengelola administrasi user dan hak akses melalui Active Directory untuk keamanan data.</li>
+                    <li>Distribusi dan monitoring issue tiket menggunakan OTRS System untuk efisiensi tim.</li>
+                    <li>Pemantauan kesehatan PC kantor secara remote melalui Project RSAT.</li>
+                    <li>Troubleshooting hardware, software, dan system access problems tingkat lanjut.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <span>TECHNICAL SUPPORT</span>
+                    <span>Des 2021 – Agt 2022</span>
+                </div>
+                <div class="exp-company">PT. Wahana Datarindo Sempurna</div>
+                <ul>
+                    <li>Pemeliharaan dan perbaikan rutin pada perangkat Auto ID dan POS.</li>
+                    <li>Inspeksi dan pengujian unit Auto ID/POS untuk memastikan standar operasional.</li>
+                    <li>Memberikan dukungan teknis after-sales kepada pelanggan korporat.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <span>IT SUPPORT</span>
+                    <span>Sep 2019 – Des 2021</span>
+                </div>
+                <div class="exp-company">PT. Radiant Jaya Bersama</div>
+                <ul>
+                    <li>Maintenance infrastruktur IT termasuk PC, laptop, dan server.</li>
+                    <li>Menyelesaikan kendala teknis pada komponen kritis untuk performa optimal.</li>
+                    <li>Menangani tugas administratif serta inventaris peralatan IT perusahaan.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-block">
+            <div class="section-title">Technical Projects</div>
+            <div class="project-box">
+                <strong>Armbian Self-Hosting Project</strong>
+                <p>Membangun server lokal hemat daya berbasis Linux Armbian untuk manajemen jaringan mandiri dan efisiensi sistem.</p>
+            </div>
+            <div class="project-box">
+                <strong>Monitoring PC RSAT</strong>
+                <p>Implementasi pemantauan remote untuk menjaga stabilitas perangkat kerja di kantor secara real-time.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
