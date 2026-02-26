@@ -3,73 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Yahya Angga Winata</title>
+    <title>Yahya Angga Winata - IT Helpdesk Professional</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
+        :root { --primary: #2c3e50; --accent: #dbe4eb; --text: #333; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Arial', sans-serif; background-color: #ffffff; color: #444; line-height: 1.4; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f2f5; color: var(--text); line-height: 1.5; padding: 20px; }
         
-        /* Layout Container */
-        .resume-container { max-width: 900px; margin: 20px auto; display: flex; box-shadow: 0 0 20px rgba(0,0,0,0.1); border-radius: 5px; overflow: hidden; }
+        .resume-container { max-width: 850px; margin: 0 auto; background: #fff; display: flex; flex-wrap: wrap; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-radius: 8px; overflow: hidden; position: relative; }
+        
+        /* Floating Button for PDF */
+        .btn-pdf { position: fixed; bottom: 20px; right: 20px; background: #e74c3c; color: white; border: none; padding: 12px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 100; transition: 0.3s; }
+        .btn-pdf:hover { transform: scale(1.05); background: #c0392b; }
 
-        /* Left Sidebar (Blue Accent) */
-        .sidebar { width: 35%; background-color: #dbe4eb; padding: 30px 20px; }
-        .profile-img { width: 160px; height: 160px; border-radius: 50%; background-color: #fff; margin: 0 auto 30px; border: 5px solid #fff; overflow: hidden; }
-        .profile-img img { width: 100%; height: 100%; object-fit: cover; }
+        /* Sidebar */
+        .sidebar { width: 35%; background-color: var(--accent); padding: 40px 25px; }
+        .profile-container { text-align: center; margin-bottom: 30px; }
+        .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 6px solid #fff; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background: #eee; }
         
-        .sidebar-section { margin-bottom: 30px; }
-        .sidebar-title { font-size: 1.1rem; font-weight: bold; color: #2c3e50; border-bottom: 2px solid #2c3e50; margin-bottom: 15px; padding-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
-        .contact-item { margin-bottom: 12px; font-size: 0.85rem; word-break: break-all; }
+        .sidebar-title { font-size: 1.1rem; font-weight: bold; color: var(--primary); border-bottom: 2px solid var(--primary); margin: 25px 0 15px; padding-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .contact-item { font-size: 0.85rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
         .sidebar ul { list-style: none; }
-        .sidebar ul li { font-size: 0.85rem; margin-bottom: 8px; padding-left: 10px; border-left: 3px solid #2c3e50; }
+        .sidebar ul li { font-size: 0.85rem; margin-bottom: 8px; padding-left: 10px; border-left: 3px solid var(--primary); }
 
-        /* Right Content */
-        .main-content { width: 65%; padding: 40px; }
-        .header { margin-bottom: 30px; text-align: left; }
-        .header h1 { font-size: 2.2rem; color: #2c3e50; text-transform: uppercase; margin-bottom: 5px; }
-        .header p { font-size: 1rem; color: #555; letter-spacing: 2px; }
+        /* Main Content */
+        .main-content { width: 65%; padding: 45px; background: #fff; }
+        .header { margin-bottom: 35px; border-left: 8px solid var(--primary); padding-left: 20px; }
+        .header h1 { font-size: 2.2rem; color: var(--primary); text-transform: uppercase; line-height: 1.1; }
+        .header p { font-size: 1.1rem; color: #666; margin-top: 5px; font-weight: 500; }
 
-        .section-title { font-size: 1.2rem; font-weight: bold; color: #2c3e50; border-bottom: 1px solid #ccc; margin-bottom: 15px; padding-bottom: 5px; text-transform: uppercase; }
-        .content-block { margin-bottom: 25px; }
-        .content-block p { font-size: 0.9rem; text-align: justify; }
+        .section-title { font-size: 1.2rem; font-weight: bold; color: var(--primary); border-bottom: 1px solid #eee; margin-bottom: 15px; padding-bottom: 5px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+        .about-text { font-size: 0.95rem; text-align: justify; margin-bottom: 30px; }
 
-        .experience-item { margin-bottom: 15px; }
-        .exp-header { display: flex; justify-content: space-between; font-weight: bold; color: #2c3e50; font-size: 0.95rem; }
-        .exp-company { font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-bottom: 5px; }
-        .experience-item ul { padding-left: 18px; font-size: 0.85rem; color: #444; }
-        .experience-item ul li { margin-bottom: 3px; }
+        .experience-item { margin-bottom: 25px; }
+        .exp-header { display: flex; justify-content: space-between; font-weight: bold; color: var(--primary); font-size: 1rem; }
+        .exp-company { font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-bottom: 8px; display: block; }
+        .experience-item ul { padding-left: 20px; font-size: 0.88rem; }
+        .experience-item ul li { margin-bottom: 5px; }
 
-        .project-box { background-color: #f9f9f9; padding: 12px; border-left: 4px solid #dbe4eb; margin-bottom: 10px; }
-        .project-box strong { font-size: 0.9rem; color: #2c3e50; }
-        .project-box p { font-size: 0.8rem; margin-top: 5px; }
+        .project-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 10px; }
+        .project-card { background: #f8f9fa; padding: 15px; border-radius: 5px; border-top: 3px solid var(--primary); }
+        .project-card strong { font-size: 0.95rem; display: block; margin-bottom: 5px; color: var(--primary); }
+        .project-card p { font-size: 0.85rem; color: #555; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar, .main-content { width: 100%; }
+            .profile-img { width: 150px; height: 150px; }
+            .resume-container { margin: 0; border-radius: 0; }
+        }
     </style>
 </head>
 <body>
 
-<div class="resume-container">
+<button class="btn-pdf" onclick="downloadPDF()">Download PDF</button>
+
+<div class="resume-container" id="cv-content">
     <div class="sidebar">
-        <div class="profile-img">
-            <img src="https://via.placeholder.com/160" alt="Yahya Angga Winata">
+        <div class="profile-container">
+            <img src="https://i.ibb.co/3ykTf3jP/1000163204.png" alt="Yahya Angga Winata" class="profile-img">
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">Contact</div>
-            [cite_start]<div class="contact-item">📞 0819-3281-4401 [cite: 8]</div>
-            <div class="contact-item">📧 mail@yahyawinata.my.id</div>
+            <div class="sidebar-title">Kontak</div>
+            <div class="contact-item">📞 0819-3281-4401</div>
+            <div class="contact-item">✉️ mail@yahyawinata.my.id</div>
             <div class="contact-item">🌐 yahyawinata.my.id</div>
-            [cite_start]<div class="contact-item">📍 Tangerang, Banten [cite: 7]</div>
+            <div class="contact-item">📍 Tangerang, Banten</div>
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">Education</div>
+            <div class="sidebar-title">Pendidikan</div>
             <div class="contact-item">
-                <strong>Teknik Informatika</strong><br>
+                <strong>S1 Teknik Informatika</strong><br>
                 Universitas Pramita Indonesia<br>
                 2015 - 2019
             </div>
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">Skills</div>
+            <div class="sidebar-title">Keahlian Teknis</div>
             <ul>
                 <li>Active Directory</li>
                 <li>OTRS System</li>
@@ -96,69 +109,71 @@
             <p>IT Helpdesk Professional</p>
         </div>
 
-        <div class="content-block">
-            <div class="section-title">About Me</div>
-            [cite_start]<p>I am Yahya Angga Winata[cite: 9]. IT Helpdesk professional dengan pengalaman lebih dari 4 tahun dalam mengelola infrastruktur IT di lingkungan korporat. Berpengalaman menangani Troubleshooting Hardware, Software, serta Network berskala besar.</p>
+        <div class="section-title">Tentang Saya</div>
+        <p class="about-text">
+            Saya adalah seorang IT Helpdesk Professional dengan pengalaman lebih dari 4 tahun dalam mengelola infrastruktur IT di lingkungan korporat. Memiliki spesialisasi dalam administrasi user melalui <strong>Active Directory</strong>, manajemen tiket <strong>OTRS</strong>, dan pemantauan sistem jarak jauh. Berpengalaman luas dalam menangani Troubleshooting Hardware, Software, serta infrastruktur jaringan berskala besar.
+        </p>
+
+        <div class="section-title">Pengalaman Kerja</div>
+        
+        <div class="experience-item">
+            <div class="exp-header"><span>IT HELPDESK</span> <span>Sep 2022 – Sekarang</span></div>
+            <span class="exp-company">PT. Global Digital Niaga (Blibli)</span>
+            <ul>
+                <li>Mengelola administrasi user dan hak akses melalui Active Directory secara berkala.</li>
+                <li>Distribusi dan monitoring issue tiket menggunakan OTRS System untuk memastikan efisiensi penanganan kendala.</li>
+                <li>Melakukan pemantauan kesehatan PC kantor secara remote melalui Project RSAT untuk menjamin stabilitas sistem.</li>
+                <li>Menangani troubleshooting tingkat lanjut pada hardware dan software user.</li>
+            </ul>
         </div>
 
-        <div class="content-block">
-            <div class="section-title">Work Experience</div>
-            
-            <div class="experience-item">
-                <div class="exp-header">
-                    <span>IT HELPDESK</span>
-                    <span>Sep 2022 – Present</span>
-                </div>
-                <div class="exp-company">PT. Global Digital Niaga (Blibli)</div>
-                <ul>
-                    <li>Mengelola administrasi user dan hak akses melalui Active Directory untuk keamanan data.</li>
-                    <li>Distribusi dan monitoring issue tiket menggunakan OTRS System untuk efisiensi tim.</li>
-                    <li>Pemantauan kesehatan PC kantor secara remote melalui Project RSAT.</li>
-                    <li>Troubleshooting hardware, software, dan system access problems tingkat lanjut.</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="exp-header">
-                    <span>TECHNICAL SUPPORT</span>
-                    <span>Des 2021 – Agt 2022</span>
-                </div>
-                <div class="exp-company">PT. Wahana Datarindo Sempurna</div>
-                <ul>
-                    <li>Pemeliharaan dan perbaikan rutin pada perangkat Auto ID dan POS.</li>
-                    <li>Inspeksi dan pengujian unit Auto ID/POS untuk memastikan standar operasional.</li>
-                    <li>Memberikan dukungan teknis after-sales kepada pelanggan korporat.</li>
-                </ul>
-            </div>
-
-            <div class="experience-item">
-                <div class="exp-header">
-                    <span>IT SUPPORT</span>
-                    <span>Sep 2019 – Des 2021</span>
-                </div>
-                <div class="exp-company">PT. Radiant Jaya Bersama</div>
-                <ul>
-                    <li>Maintenance infrastruktur IT termasuk PC, laptop, dan server.</li>
-                    <li>Menyelesaikan kendala teknis pada komponen kritis untuk performa optimal.</li>
-                    <li>Menangani tugas administratif serta inventaris peralatan IT perusahaan.</li>
-                </ul>
-            </div>
+        <div class="experience-item">
+            <div class="exp-header"><span>TECHNICAL SUPPORT</span> <span>Des 2021 – Agt 2022</span></div>
+            <span class="exp-company">PT. Wahana Datarindo Sempurna</span>
+            <ul>
+                <li>Pemeliharaan rutin dan perbaikan pada perangkat Auto ID serta sistem POS.</li>
+                <li>Melakukan inspeksi teknis dan pengujian unit untuk memastikan standar operasional terpenuhi.</li>
+                <li>Memberikan dukungan teknis after-sales yang responsif kepada klien korporat.</li>
+            </ul>
         </div>
 
-        <div class="content-block">
-            <div class="section-title">Technical Projects</div>
-            <div class="project-box">
+        <div class="experience-item">
+            <div class="exp-header"><span>IT SUPPORT</span> <span>Sep 2019 – Des 2021</span></div>
+            <span class="exp-company">PT. Radiant Jaya Bersama</span>
+            <ul>
+                <li>Maintenance infrastruktur IT perusahaan meliputi unit PC, laptop, dan server.</li>
+                <li>Menyelesaikan kendala teknis pada komponen kritis untuk performa operasional maksimal.</li>
+                <li>Administrasi inventaris peralatan IT dan aset perusahaan secara mendetail.</li>
+            </ul>
+        </div>
+
+        <div class="section-title">Proyek Teknis</div>
+        <div class="project-grid">
+            <div class="project-card">
                 <strong>Armbian Self-Hosting Project</strong>
-                <p>Membangun server lokal hemat daya berbasis Linux Armbian untuk manajemen jaringan mandiri dan efisiensi sistem.</p>
+                <p>Membangun dan mengelola server lokal hemat daya berbasis Linux Armbian untuk kebutuhan manajemen jaringan mandiri.</p>
             </div>
-            <div class="project-box">
+            <div class="project-card">
                 <strong>Monitoring PC RSAT</strong>
-                <p>Implementasi pemantauan remote untuk menjaga stabilitas perangkat kerja di kantor secara real-time.</p>
+                <p>Implementasi pemantauan remote real-time untuk menjaga stabilitas perangkat kerja di seluruh kantor.</p>
             </div>
         </div>
     </div>
 </div>
 
-</body>
+<script>
+    function downloadPDF() {
+        const element = document.getElementById('cv-content');
+        const opt = {
+            margin: 0,
+            filename: 'CV_Yahya_Angga_Winata.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+        };
+        html2pdf().set(opt).from(element).save();
+    }
+</script>
 
+</body>
 </html>
