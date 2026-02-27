@@ -380,9 +380,8 @@
   }, { threshold: 0.2 });
   faders.forEach(el => observer.observe(el));
 
-  <script>
+  // Skill Bar Animation
   const skillBars = document.querySelectorAll('.skill-bar');
-
   const skillObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
@@ -397,7 +396,6 @@
     bar.style.width = "0%";
     skillObserver.observe(bar);
   });
-</script>
 
   // Scroll Progress Bar
   window.addEventListener("scroll", () => {
@@ -410,4 +408,5 @@
 
 </body>
 </html>
+
 
