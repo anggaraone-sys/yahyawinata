@@ -1,180 +1,206 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yahya Angga Winata - IT Helpdesk Professional</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <style>
-        :root { --primary: #2c3e50; --accent: #dbe4eb; --text: #333; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f2f5; color: var(--text); line-height: 1.5; padding: 20px; }
-        
-        .resume-container { max-width: 850px; margin: 0 auto; background: #fff; display: flex; flex-wrap: wrap; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-radius: 8px; overflow: hidden; position: relative; }
-        
-        /* Floating Button for PDF */
-        .btn-pdf { position: fixed; bottom: 20px; right: 20px; background: #e74c3c; color: white; border: none; padding: 12px 20px; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 100; transition: 0.3s; }
-        .btn-pdf:hover { transform: scale(1.05); background: #c0392b; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yahya Angga Winata | IT Helpdesk</title>
 
-        /* Sidebar */
-        .sidebar { width: 35%; background-color: var(--accent); padding: 40px 25px; }
-        .profile-container { text-align: center; margin-bottom: 30px; }
-        .profile-img { width: 180px; height: 180px; border-radius: 50%; border: 6px solid #fff; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background: #eee; }
-        
-        .sidebar-title { font-size: 1.1rem; font-weight: bold; color: var(--primary); border-bottom: 2px solid var(--primary); margin: 25px 0 15px; padding-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
-        .contact-item { font-size: 0.85rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-        .sidebar ul { list-style: none; }
-        .sidebar ul li { font-size: 0.85rem; margin-bottom: 8px; padding-left: 10px; border-left: 3px solid var(--primary); }
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-        /* Main Content */
-        .main-content { width: 65%; padding: 45px; background: #fff; }
-        .header { margin-bottom: 35px; border-left: 8px solid var(--primary); padding-left: 20px; }
-        .header h1 { font-size: 2.2rem; color: var(--primary); text-transform: uppercase; line-height: 1.1; }
-        .header p { font-size: 1.1rem; color: #666; margin-top: 5px; font-weight: 500; }
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        .section-title { font-size: 1.2rem; font-weight: bold; color: var(--primary); border-bottom: 1px solid #eee; margin-bottom: 15px; padding-bottom: 5px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
-        .about-text { font-size: 0.95rem; text-align: justify; margin-bottom: 30px; }
-
-        .experience-item { margin-bottom: 25px; }
-        .exp-header { display: flex; justify-content: space-between; font-weight: bold; color: var(--primary); font-size: 1rem; }
-        .exp-company { font-style: italic; color: #7f8c8d; font-size: 0.9rem; margin-bottom: 8px; display: block; }
-        .experience-item ul { padding-left: 20px; font-size: 0.88rem; }
-        .experience-item ul li { margin-bottom: 5px; }
-
-        .project-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 10px; }
-        .project-card { background: #f8f9fa; padding: 15px; border-radius: 5px; border-top: 3px solid var(--primary); }
-        .project-card strong { font-size: 0.95rem; display: block; margin-bottom: 5px; color: var(--primary); }
-        .project-card p { font-size: 0.85rem; color: #555; }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .sidebar, .main-content { width: 100%; }
-            .profile-img { width: 150px; height: 150px; }
-            .resume-container { margin: 0; border-radius: 0; }
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
         }
-    </style>
-</head>
-<body>
-
-<button class="btn-pdf" onclick="downloadPDF()">Download PDF</button>
-
-<div class="resume-container" id="cv-content">
-    <div class="sidebar">
-        <div class="profile-container">
-            <img src="assets/foto-profil.png" alt="Yahya Angga Winata" class="profile-img">
-        </div>
-
-        <div class="sidebar-section">
-            <div class="sidebar-title">Kontak</div>
-            <div class="contact-item">📞 0819-3281-4401</div>
-            <div class="contact-item">✉️ mail@yahyawinata.my.id</div>
-            <div class="contact-item">🌐 yahyawinata.my.id</div>
-            <div class="contact-item">📍 Tangerang, Banten</div>
-        </div>
-
-        <div class="sidebar-section">
-            <div class="sidebar-title">Pendidikan</div>
-            <div class="contact-item">
-                <strong>S1 Teknik Informatika</strong><br>
-                Universitas Pramita Indonesia<br>
-                2015 - 2019
-            </div>
-        </div>
-
-        <div class="sidebar-section">
-            <div class="sidebar-title">Keahlian Teknis</div>
-            <ul>
-                <li>Active Directory</li>
-                <li>OTRS System</li>
-                <li>RSAT Tools</li>
-                <li>Armbian & Linux</li>
-                <li>Hardware Troubleshooting</li>
-                <li>Network Management</li>
-            </ul>
-        </div>
-
-        <div class="sidebar-section">
-            <div class="sidebar-title">Soft Skills</div>
-            <ul>
-                <li>Problem Solving</li>
-                <li>Communication</li>
-                <li>Time Management</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="main-content">
-        <div class="header">
-            <h1>Yahya Angga Winata</h1>
-            <p>IT Helpdesk Professional</p>
-        </div>
-
-        <div class="section-title">Tentang Saya</div>
-        <p class="about-text">
-            Saya adalah seorang IT Helpdesk Professional dengan pengalaman lebih dari 4 tahun dalam mengelola infrastruktur IT di lingkungan korporat. Memiliki spesialisasi dalam administrasi user melalui <strong>Active Directory</strong>, manajemen tiket <strong>OTRS</strong>, dan pemantauan sistem jarak jauh. Berpengalaman luas dalam menangani Troubleshooting Hardware, Software, serta infrastruktur jaringan berskala besar.
-        </p>
-
-        <div class="section-title">Pengalaman Kerja</div>
-        
-        <div class="experience-item">
-            <div class="exp-header"><span>IT HELPDESK</span> <span>Sep 2022 – Sekarang</span></div>
-            <span class="exp-company">PT. Global Digital Niaga (Blibli)</span>
-            <ul>
-                <li>Mengelola administrasi user dan hak akses melalui Active Directory secara berkala.</li>
-                <li>Distribusi dan monitoring issue tiket menggunakan OTRS System untuk memastikan efisiensi penanganan kendala.</li>
-                <li>Melakukan pemantauan kesehatan PC kantor secara remote melalui Project RSAT untuk menjamin stabilitas sistem.</li>
-                <li>Menangani troubleshooting tingkat lanjut pada hardware dan software user.</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <div class="exp-header"><span>TECHNICAL SUPPORT</span> <span>Des 2021 – Agt 2022</span></div>
-            <span class="exp-company">PT. Wahana Datarindo Sempurna</span>
-            <ul>
-                <li>Pemeliharaan rutin dan perbaikan pada perangkat Auto ID serta sistem POS.</li>
-                <li>Melakukan inspeksi teknis dan pengujian unit untuk memastikan standar operasional terpenuhi.</li>
-                <li>Memberikan dukungan teknis after-sales yang responsif kepada klien korporat.</li>
-            </ul>
-        </div>
-
-        <div class="experience-item">
-            <div class="exp-header"><span>IT SUPPORT</span> <span>Sep 2019 – Des 2021</span></div>
-            <span class="exp-company">PT. Radiant Jaya Bersama</span>
-            <ul>
-                <li>Maintenance infrastruktur IT perusahaan meliputi unit PC, laptop, dan server.</li>
-                <li>Menyelesaikan kendala teknis pada komponen kritis untuk performa operasional maksimal.</li>
-                <li>Administrasi inventaris peralatan IT dan aset perusahaan secara mendetail.</li>
-            </ul>
-        </div>
-
-        <div class="section-title">Proyek Teknis</div>
-        <div class="project-grid">
-            <div class="project-card">
-                <strong>Armbian Self-Hosting Project</strong>
-                <p>Membangun dan mengelola server lokal hemat daya berbasis Linux Armbian untuk kebutuhan manajemen jaringan mandiri.</p>
-            </div>
-            <div class="project-card">
-                <strong>Monitoring PC RSAT</strong>
-                <p>Implementasi pemantauan remote real-time untuk menjaga stabilitas perangkat kerja di seluruh kantor.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    function downloadPDF() {
-        const element = document.getElementById('cv-content');
-        const opt = {
-            margin: 0,
-            filename: 'CV_Yahya_Angga_Winata.pdf',
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2, useCORS: true },
-            jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-        };
-        html2pdf().set(opt).from(element).save();
+      }
     }
-</script>
+  </script>
+
+  <!-- Custom Animation -->
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .fade-in-delay {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 9999px;
+      margin: 0 auto 20px auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-slate-100 text-slate-700 font-sans scroll-smooth">
+
+<!-- NAVBAR -->
+<header class="bg-white shadow-sm fixed w-full z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="font-bold text-lg text-blue-600">Yahya Angga Winata</h1>
+    <nav class="hidden md:flex space-x-6 text-sm font-medium">
+      <a href="#about" class="hover:text-blue-600 transition">About</a>
+      <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
+      <a href="#experience" class="hover:text-blue-600 transition">Experience</a>
+      <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="pt-32 pb-20">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+
+    <img src="assets/foto-profil.png" 
+         alt="Yahya Angga Winata" 
+         class="profile-img fade-in">
+
+    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-800 mb-4 fade-in-delay">
+      Yahya Angga Winata
+    </h2>
+
+    <p class="text-lg text-slate-500 mb-4 fade-in-delay">
+      IT Helpdesk & Infrastructure Support
+    </p>
+
+    <p class="text-sm text-slate-400 mb-8 fade-in-delay">
+      Active Directory • OTRS • Endpoint Monitoring
+    </p>
+
+    <div class="flex justify-center gap-4 flex-wrap fade-in-delay">
+      <a href="assets/CV-Yahya-Angga-Winata.pdf"
+         class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow hover:bg-blue-700 hover:scale-105 transition duration-300">
+        Download CV
+      </a>
+
+      <a href="https://wa.me/6281933814401"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="bg-green-500 text-white px-6 py-3 rounded-xl shadow hover:bg-green-600 hover:scale-105 transition duration-300">
+        Contact via WhatsApp
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="pb-20">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="bg-white rounded-2xl shadow p-8 text-center hover:shadow-lg transition">
+      <h3 class="text-2xl font-bold mb-4 text-slate-800">About Me</h3>
+      <p class="text-slate-600 leading-relaxed">
+        Saya adalah IT Helpdesk Professional dengan pengalaman lebih dari 4 tahun 
+        dalam mengelola infrastruktur IT korporat. Memiliki spesialisasi dalam 
+        administrasi user melalui Active Directory, manajemen tiket OTRS, 
+        pemantauan sistem endpoint menggunakan RSAT, serta troubleshooting hardware dan software.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="pb-20">
+  <div class="max-w-4xl mx-auto px-6">
+    <h3 class="text-2xl font-bold mb-8 text-center text-slate-800">
+      Technical Skills
+    </h3>
+
+    <div class="mb-6">
+      <div class="flex justify-between mb-2">
+        <span>Active Directory</span>
+        <span>80%</span>
+      </div>
+      <div class="w-full bg-slate-200 h-3 rounded-full">
+        <div class="bg-blue-600 h-3 rounded-full w-[80%]"></div>
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <div class="flex justify-between mb-2">
+        <span>OTRS Ticketing</span>
+        <span>80%</span>
+      </div>
+      <div class="w-full bg-slate-200 h-3 rounded-full">
+        <div class="bg-blue-600 h-3 rounded-full w-[80%]"></div>
+      </div>
+    </div>
+
+    <div class="mb-10">
+      <div class="flex justify-between mb-2">
+        <span>Endpoint Monitoring / RSAT</span>
+        <span>75%</span>
+      </div>
+      <div class="w-full bg-slate-200 h-3 rounded-full">
+        <div class="bg-blue-600 h-3 rounded-full w-[75%]"></div>
+      </div>
+    </div>
+
+    <div class="text-sm text-slate-500">
+      <p class="font-semibold mb-2">Additional Knowledge:</p>
+      <p>Basic Linux Administration (Armbian), Basic Networking Configuration</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-white py-8 border-t">
+  <div class="max-w-4xl mx-auto px-6 text-center text-sm text-slate-500 space-y-2">
+    
+    <p>
+      Email:
+      <a href="mailto:mail@yahyawinata.my.id"
+         class="text-blue-600 hover:underline">
+         mail@yahyawinata.my.id
+      </a>
+    </p>
+
+    <p>
+      LinkedIn:
+      <a href="https://www.linkedin.com/in/yahya-angga"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="text-blue-600 hover:underline">
+         linkedin.com/in/yahya-angga
+      </a>
+    </p>
+
+    <p class="pt-4 text-xs text-slate-400">
+      © 2026 Yahya Angga Winata
+    </p>
+  </div>
+</footer>
 
 </body>
 </html>
-
