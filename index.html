@@ -24,28 +24,7 @@
     }
   </script>
 
-  <!-- Custom Animation -->
   <style>
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards;
-    }
-
-    .fade-in-delay {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 0.3s;
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     .profile-img {
       width: 160px;
       height: 160px;
@@ -53,7 +32,7 @@
       border-radius: 9999px;
       margin: 0 auto 20px auto;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .profile-img:hover {
@@ -79,26 +58,22 @@
 </header>
 
 <!-- HERO -->
-<section class="pt-32 pb-20">
-  <div class="max-w-6xl mx-auto px-6 text-center">
+<section class="pt-32 pb-20 text-center">
+  <div class="max-w-6xl mx-auto px-6">
 
     <img src="assets/foto-profil.png" 
          alt="Yahya Angga Winata" 
-         class="profile-img fade-in">
+         class="profile-img">
 
-    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-800 mb-4 fade-in-delay">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-slate-800 mb-4">
       Yahya Angga Winata
     </h2>
 
-    <p class="text-lg text-slate-500 mb-4 fade-in-delay">
-      IT Helpdesk & Infrastructure Support
+    <p class="text-lg text-slate-500 mb-6">
+      IT Helpdesk & IT Support
     </p>
 
-    <p class="text-sm text-slate-400 mb-8 fade-in-delay">
-      Active Directory • OTRS • Endpoint Monitoring
-    </p>
-
-    <div class="flex justify-center gap-4 flex-wrap fade-in-delay">
+    <div class="flex justify-center gap-4 flex-wrap">
       <a href="assets/CV-Yahya-Angga-Winata.pdf"
          class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow hover:bg-blue-700 hover:scale-105 transition duration-300">
         Download CV
@@ -118,13 +93,14 @@
 <!-- ABOUT -->
 <section id="about" class="pb-20">
   <div class="max-w-4xl mx-auto px-6">
-    <div class="bg-white rounded-2xl shadow p-8 text-center hover:shadow-lg transition">
+    <div class="bg-white rounded-2xl shadow p-8 text-center">
       <h3 class="text-2xl font-bold mb-4 text-slate-800">About Me</h3>
       <p class="text-slate-600 leading-relaxed">
-        Saya adalah IT Helpdesk Professional dengan pengalaman lebih dari 4 tahun 
-        dalam mengelola infrastruktur IT korporat. Memiliki spesialisasi dalam 
-        administrasi user melalui Active Directory, manajemen tiket OTRS, 
-        pemantauan sistem endpoint menggunakan RSAT, serta troubleshooting hardware dan software.
+        Berpengalaman lebih dari 4 tahun di bidang IT Helpdesk dan IT Support dalam 
+        mendukung operasional IT harian. Memiliki kemampuan dalam pengelolaan akun 
+        pengguna, manajemen tiket layanan, monitoring perangkat, serta troubleshooting 
+        hardware dan software untuk memastikan layanan IT berjalan secara stabil, 
+        efisien, dan sesuai dengan kebutuhan pengguna.
       </p>
     </div>
   </div>
@@ -149,7 +125,7 @@
 
     <div class="mb-6">
       <div class="flex justify-between mb-2">
-        <span>OTRS Ticketing</span>
+        <span>OTRS Ticketing System</span>
         <span>80%</span>
       </div>
       <div class="w-full bg-slate-200 h-3 rounded-full">
@@ -166,40 +142,90 @@
         <div class="bg-blue-600 h-3 rounded-full w-[75%]"></div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="text-sm text-slate-500">
-      <p class="font-semibold mb-2">Additional Knowledge:</p>
-      <p>Basic Linux Administration (Armbian), Basic Networking Configuration</p>
+<!-- EXPERIENCE -->
+<section id="experience" class="pb-20">
+  <div class="max-w-4xl mx-auto px-6">
+    <h3 class="text-2xl font-bold mb-10 text-center text-slate-800">
+      Professional Experience
+    </h3>
+
+    <div class="space-y-8">
+
+      <div class="bg-white rounded-2xl shadow p-6">
+        <h4 class="font-semibold text-lg">IT Helpdesk</h4>
+        <p class="text-sm text-blue-600 mb-3">
+          PT Global Digital Niaga | 2022 – Present
+        </p>
+        <ul class="list-disc list-inside text-sm text-slate-600 space-y-2">
+          <li>Mengelola administrasi akun pengguna melalui Active Directory.</li>
+          <li>Menangani dan memonitor tiket layanan IT menggunakan sistem OTRS.</li>
+          <li>Melakukan monitoring endpoint serta pemeliharaan sistem menggunakan RSAT.</li>
+          <li>Memberikan dukungan teknis dan troubleshooting hardware maupun software.</li>
+          <li>Memastikan layanan IT berjalan stabil dan sesuai dengan kebutuhan operasional.</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow p-6">
+        <h4 class="font-semibold text-lg">Technical Support</h4>
+        <p class="text-sm text-blue-600 mb-3">
+          PT Wahana Datadrindo Sempurna | 2021 – 2022
+        </p>
+        <ul class="list-disc list-inside text-sm text-slate-600 space-y-2">
+          <li>Melakukan instalasi dan konfigurasi perangkat IT.</li>
+          <li>Menangani permasalahan teknis pengguna secara langsung maupun remote.</li>
+          <li>Berkoordinasi dengan tim internal untuk penyelesaian issue sistem.</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow p-6">
+        <h4 class="font-semibold text-lg">IT Support</h4>
+        <p class="text-sm text-blue-600 mb-3">
+          PT Radian Jaya Bersama | 2019 – 2021
+        </p>
+        <ul class="list-disc list-inside text-sm text-slate-600 space-y-2">
+          <li>Mendukung kebutuhan operasional IT harian perusahaan.</li>
+          <li>Melakukan maintenance perangkat komputer dan jaringan dasar.</li>
+          <li>Memberikan dukungan teknis kepada pengguna untuk memastikan kelancaran kerja.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="pb-20">
+  <div class="max-w-5xl mx-auto px-6">
+    <h3 class="text-2xl font-bold mb-10 text-center text-slate-800">
+      Projects
+    </h3>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white rounded-2xl shadow p-6">
+        <h4 class="font-semibold text-lg mb-2">Armbian Self Hosting</h4>
+        <p class="text-sm text-slate-600">
+          Implementasi server lokal berbasis Linux untuk mendukung kebutuhan jaringan internal dan pembelajaran infrastruktur sistem.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow p-6">
+        <h4 class="font-semibold text-lg mb-2">Endpoint Monitoring Implementation</h4>
+        <p class="text-sm text-slate-600">
+          Penerapan monitoring perangkat kerja guna meningkatkan stabilitas dan efisiensi operasional IT.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-white py-8 border-t">
-  <div class="max-w-4xl mx-auto px-6 text-center text-sm text-slate-500 space-y-2">
-    
-    <p>
-      Email:
-      <a href="mailto:mail@yahyawinata.my.id"
-         class="text-blue-600 hover:underline">
-         mail@yahyawinata.my.id
-      </a>
-    </p>
-
-    <p>
-      LinkedIn:
-      <a href="https://www.linkedin.com/in/yahya-angga"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="text-blue-600 hover:underline">
-         linkedin.com/in/yahya-angga
-      </a>
-    </p>
-
-    <p class="pt-4 text-xs text-slate-400">
-      © 2026 Yahya Angga Winata
-    </p>
-  </div>
+<footer class="bg-white py-8 border-t text-center text-sm text-slate-500">
+  <p>Email: mail@yahyawinata.my.id</p>
+  <p>LinkedIn: linkedin.com/in/yahya-angga</p>
+  <p class="mt-3 text-xs text-slate-400">© 2026 Yahya Angga Winata</p>
 </footer>
 
 </body>
